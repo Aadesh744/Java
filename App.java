@@ -1,11 +1,15 @@
 public class App {
     public static void main(String[] args) throws Exception {
-//Creating string
-String str1 = "kathmandu";
-String str2 = "coimbatore";
-String str3 = "Tamilnadu";
-//Concatenation 
-String concatenation = str1+" "+str2;  
-System.out.println("concatenation of strings:"+concatenation);
-}
+     int a = 5;
+     int b = 10;
+     System.out.println("before swapping number");
+     System.out.println("show number a=" +a);
+     System.out.println("show number b=" +b);
+     int temp = a;
+     a = b;
+     b = temp;
+     System.out.println("After swapping number");
+     System.out.println("show number a=" +a);
+     System.out.println("show number b=" +b);
+    }
 }
