@@ -1,13 +1,23 @@
+Class pen {
+    String colour;
+    String type;//ballpen,gelpen
+    //Using Function
+    public void write(){
+        System.out.println("i am writung");
+    }
+    public void printcolour(){
+     System.out.println("this.colour");
+    }
+
+}
 public class aadesh {
-    public static void main(String[] args) {
-        String str1 = "Hello, ";
-        String str2 = "World!";
-        
-        // Concatenate strings using the + operator
-        String result = str1 + str2;
-        
-        // Print the result
-        System.out.println(result); // Output: Hello, World!
+    public static void main(String[] args) throws Exception {
+        //Creating object
+        pen.pen1=new Pen();
+        pen1.colour="black";
+        pen1.type="gelpen";
+        pen1.colour();
+
+
     }
 }
-
