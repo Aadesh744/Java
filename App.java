@@ -1,15 +1,29 @@
+class Student{
+    String name;
+    int age;
+    //Creating function 
+    public void printinfo(String name){
+      System.out.println(name);
+    }
+    public void printInfo(int age){
+        System.out.println(age);
+    }
+    public void printInfo(String name,int age){
+        System.out.println(name+" "+age);
+    }
+
+}
+
+
 public class App {
     public static void main(String[] args) throws Exception {
-     int a = 5;
-     int b = 10;
-     System.out.println("before swapping number");
-     System.out.println("show number a=" +a);
-     System.out.println("show number b=" +b);
-     int temp = a;
-     a = b;
-     b = temp;
-     System.out.println("After swapping number");
-     System.out.println("show number a=" +a);
-     System.out.println("show number b=" +b);
+        Student s1= new Student();
+        s1.name="aadesh";
+        s1.age=20;
+        s1.printInfo(s1.age);
+        s1.printInfo(s1.name,s1.age);
+
+
+       
     }
 }
