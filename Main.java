@@ -1,29 +1,43 @@
-
-// Defining  class the as a Person
 class Person {
-    //anything inside the class called instancle class
     String name;
     int age;
+
+ 
+    public Person() {
+        this.name = "Unknown";
+        this.age = 0;
+    }
+
     
-    // using Constructor
-    Person(String name, int age) {
+    public Person(String name, int age) {
         this.name = name;
         this.age = age;
     }
-    
-    // Method to display person's details
-    void displayInfo() {
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
+
+ 
+    public Person(Person person) {
+        this.name = person.name;
+        this.age = person.age;
+    }
+    public void display() {
+        System.out.println("Name: " + name + ", Age: " + age);
     }
 }
 
 public class Main {
     public static void main(String[] args) {
-        // Create a new Person object using the 'new' keyword
-        Person person1 = new Person("Aadesh", 20);  
-        // Call the method to display person information
-        person1.displayInfo();
+       
+        Person person1 = new Person();
+        System.out.println("Person 1 details (default constructor):");
+        person1.display();
+
+        Person person2 = new Person("Aadesh", 20);
+        System.out.println("Person 2 details (parameterized constructor):");
+        person2.display();
+
+     
+        Person person3 = new Person(person2);
+        System.out.println("Person 3 details (copied from Person 2):");
+        person3.display();
     }
 }
-
