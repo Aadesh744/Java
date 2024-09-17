@@ -1,33 +1,36 @@
-class Aadesh{
+class Pen {
     String name;
-    String course;
-    int year;
-    public Aadesh(String name, String course, int year){
-        this.name=name;
-        this.course=course;
-        this.year=year;
-        }
+    int age;
 
-    public void printName(){
-        System.out.println(this.name);
+    // Using Default constructor
+    public Pen() {
     }
-    public void printCourse(){
-        System.out.println(this.course);
+
+    // Using copy constructor
+    public Pen(Pen p2) {
+        this.name = p2.name;
+        this.age = p2.age;
     }
-    public void printYear(){
-        System.out.println(this.year);
+
+    // Using function
+    public void printInfo() {
+        System.out.println("Name: " + this.name);
+        System.out.println("Age: " + this.age);
     }
 }
-
-
-
-
 
 public class bikesh {
-    public static void main(String[] args) throws Exception {
-    Aadesh A1 = new Aadesh("aadesh","CSE",2);
-    A1.printName();
-    A1.printCourse();
-    A1.printYear();
+    public static void main(String[] args) {
+        // Creating an instance or object of Pen
+        Pen p1 = new Pen();
+        p1.name = "Aadesh";
+        p1.age = 20;
+
+        // Creating a copy of p1 using the copy constructor
+        Pen p2 = new Pen(p1);
+
+        // Calling function
+        p2.printInfo();
     }
 }
+
