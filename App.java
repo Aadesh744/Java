@@ -1,22 +1,49 @@
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayList;
 
-public class App {
+class Stack<T> {
+    private ArrayList<T> stack;
+
+    public Stack() {
+        stack = new ArrayList<>();
+    }
+
+    public void push(T item) {
+        stack.add(item);
+    }
+
+    public T pop() {
+        if (isEmpty()) {
+            throw new RuntimeException("Stack is empty");
+        }
+        return stack.remove(stack.size() - 1);
+    }
+
+    public T peek() {
+        if (isEmpty()) {
+            throw new RuntimeException("Stack is empty");
+        }
+        return stack.get(stack.size() - 1);
+    }
+
+    public boolean isEmpty() {
+        return stack.isEmpty();
+    }
+
+    public int size() {
+        return stack.size();
+    }
+
     public static void main(String[] args) {
+        Stack<Integer> intStack = new Stack<>();
         
-        Queue<Integer> queue = new LinkedList<>();
+        intStack.push(1);
+        intStack.push(2);
+        intStack.push(3);
 
-        queue.offer(10);
-        queue.offer(20);
-        queue.offer(30);
+        System.out.println("Top element: " + intStack.peek());
+        System.out.println("Stack size: " + intStack.size());
 
-        
-        System.out.println( queue.peek());
-        System.out.println( queue.poll());
-        System.out.println( queue.poll());
-        System.out.println(  queue.peek());        
-        System.out.println( queue.isEmpty());
-
-        System.out.println( queue.size());
+        System.out.println("Popped element: " + intStack.pop());
+        System.out.println("Stack size after pop: " + intStack.size());
     }
 }
