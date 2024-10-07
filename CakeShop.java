@@ -1,6 +1,6 @@
 import java.io.*;
 
-class Cake {  // Class names in Java should start with an uppercase letter
+class Cake {  
     String flavour;
     double price;
     int layers;
@@ -14,15 +14,15 @@ class Cake {  // Class names in Java should start with an uppercase letter
 
     // Method to display cake details
     void display() {
-        System.out.println("Flavour is: " + flavour);  // Corrected typo "flavourl" to "flavour"
+        System.out.println("Flavour is: " + flavour);  
         System.out.println("Layers: " + layers);
         System.out.println("Price: " + price);
     }
 }
 
-public class CakeShop {  // Class names should start with an uppercase letter
-    public static void main(String[] args) {  // "String" should be capitalized
-        Cake chocolate = new Cake("chocolate", 2, 100.0);  // Corrected class name and syntax
-        chocolate.display();  // Corrected method call syntax
+public class CakeShop {  
+    public static void main(String[] args) { 
+        Cake chocolate = new Cake("chocolate", 2, 100.0); 
+        chocolate.display();  
     }
 }
