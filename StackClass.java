@@ -2,31 +2,31 @@ import java.util.ArrayList;
 
 public class StackClass {
     public static class Stack {
-        private ArrayList<Integer> list = new ArrayList<>(); 
+        private ArrayList<String> list = new ArrayList<>(); 
 
         public boolean isEmpty() {
             return list.size() == 0;
         }
 
         // push
-        public void push(int data) {
+        public void push(String data) {
             list.add(data);
         }
 
         // pop
-        public int pop() {
+        public String pop() {
             if (isEmpty()) {
-                return -1; 
+                return null;
             }
-            int top = list.get(list.size() - 1);
+            String top = list.get(list.size() - 1);
             list.remove(list.size() - 1);
-            return top;
+            return top; 
         }
 
         // peek
-        public int peek() {
+        public String peek() {
             if (isEmpty()) {
-                return -1;  
+                return null; 
             }
             return list.get(list.size() - 1); 
         }
@@ -34,10 +34,9 @@ public class StackClass {
 
     public static void main(String[] args) {
         Stack s = new Stack();
-        s.push(1);
-        s.push(2);
-        s.push(3);
-        s.push(4);
+        s.push("aadesh");
+        s.push("bikesh");
+        s.push("ram");
         
         while (!s.isEmpty()) {
             System.out.println("Popped: " + s.pop());
@@ -45,5 +44,3 @@ public class StackClass {
         }
     }
 }
-
-
