@@ -1,43 +1,27 @@
-class Person {
-    String name;
-    int age;
+public class Box<T> {
+    private T item;
 
- 
-    public Person() {
-        this.name = "Unknown";
-        this.age = 0;
+    // Setter for the item
+    public void set(T item) {
+        this.item = item;
     }
 
-    
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-
- 
-    public Person(Person person) {
-        this.name = person.name;
-        this.age = person.age;
-    }
-    public void display() {
-        System.out.println("Name: " + name + ", Age: " + age);
+    // Getter for the item
+    public T get() {
+        return item;
     }
 }
 
 public class Main {
     public static void main(String[] args) {
-       
-        Person person1 = new Person();
-        System.out.println("Person 1 details (default constructor):");
-        person1.display();
+        // Create a Box for Integer values
+        Box<Integer> intBox = new Box<>();
+        intBox.set(10);  // Set Integer value
+        System.out.println("Integer value: " + intBox.get());
 
-        Person person2 = new Person("Aadesh", 20);
-        System.out.println("Person 2 details (parameterized constructor):");
-        person2.display();
-
-     
-        Person person3 = new Person(person2);
-        System.out.println("Person 3 details (copied from Person 2):");
-        person3.display();
+        // Create a Box for String values
+        Box<String> strBox = new Box<>();
+        strBox.set("Hello");  // Set String value
+        System.out.println("String value: " + strBox.get());
     }
 }
