@@ -1,22 +1,25 @@
-public class App{
-    public static void main(String[] args) {
-        try {
-            int[] numbers = {1, 2, 3};
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Error: Array index out of bounds.");
-        } finally {
-            System.out.println("This block always runs.");
-        }
 
-        try {
-            int result = divide(10, 0); 
-            System.out.println(result);
-        } catch (ArithmeticException e) {
-            System.out.println("Cannot divide by zero.");
-        }
+interface Animal {
+    void eat();
+}
+interface Mammal {
+    void walk();
+}
+class Dog implements Animal, Mammal {
+
+    public void eat() {
+        System.out.println("Dog is eating.");
     }
+     public void walk() {
+        System.out.println("Dog is walking.");
+    }
+}
 
-    public static int divide(int a, int b) throws ArithmeticException {
-        return a / b;
+public class App {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        
+        dog.eat();  
+        dog.walk(); 
     }
 }
