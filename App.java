@@ -1,25 +1,17 @@
 
-interface Animal {
-    void eat();
-}
-interface Mammal {
-    void walk();
-}
-class Dog implements Animal, Mammal {
-
-    public void eat() {
-        System.out.println("Dog is eating.");
-    }
-     public void walk() {
-        System.out.println("Dog is walking.");
-    }
-}
-
 public class App {
-    public static void main(String[] args) {
-        Dog dog = new Dog();
-        
-        dog.eat();  
-        dog.walk(); 
+    public static void main(String[] args) throws Exception {
+        int a =10;
+        int b =20;
+        if(a+b < 10){
+            System.out.println("a+b is less than 10");
+        }
+            else {
+                System.out.println("a+b is greater than 10");
+            }
+        }
     }
-}
+        
+
+
+ 
