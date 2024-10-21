@@ -4,6 +4,7 @@ import java.io.IOException;
 public class FileReaderExample {
     public static void main(String[] args) {
         try {
+            // Reading from a file
             FileReader reader = new FileReader("example.txt");
             int data;
             System.out.println("File contents using FileReader:");
