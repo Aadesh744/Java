@@ -1,81 +1,53 @@
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-
 class BankAccount {
-    private String accountHolder;
+    private String accountNumber;
+    private String accountHolderName;
     private double balance;
-    private Map<Date, Double> fixedTermDeposits;
 
-    public BankAccount(String accountHolder, double initialBalance) {
-        this.accountHolder = accountHolder;
-        this.balance = initialBalance;
-        this.fixedTermDeposits = new HashMap<>();
-    }
-
-    public void displayAccountDetails() {
-        System.out.println("Account Holder: " + accountHolder);
-        System.out.println("Available Balance: $" + balance);
-        System.out.println("Fixed-Term Deposits: ");
-        if (fixedTermDeposits.isEmpty()) {
-            System.out.println("No fixed-term deposits.");
-        } else {
-            for (Map.Entry<Date, Double> entry : fixedTermDeposits.entrySet()) {
-                System.out.println("Amount: $" + entry.getValue() + " - Maturity Date: " + entry.getKey());
-            }
-        }
+    public BankAccount(String accountNumber, String accountHolderName, double balance) {
+        this.accountNumber = accountNumber;
+        this.accountHolderName = accountHolderName;
+        this.balance = balance;
     }
 
     public void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
-            System.out.println("Deposited $" + amount + " into your account. New Balance: $" + balance);
-        } else {
-            System.out.println("Deposit amount must be positive.");
-        }
-    }
-
-    public void deposit(double amount, Date maturityDate) {
-        if (amount > 0) {
-            fixedTermDeposits.put(maturityDate, amount);
-            System.out.println("Deposited $" + amount + " as a fixed-term deposit. Maturity Date: " + maturityDate);
         } else {
             System.out.println("Deposit amount must be positive.");
         }
     }
 
     public void withdraw(double amount) {
-        if (amount > 0 && amount <= balance) {
+        if (amount > 0 && balance >= amount) {
             balance -= amount;
-            System.out.println("Withdrawn $" + amount + " from your account. New Balance: $" + balance);
+        } else if (amount > 0 && balance < amount) {
+            System.out.println("Insufficient balance. Withdrawal denied.");
         } else {
-            System.out.println("Invalid withdrawal amount or insufficient funds.");
+            System.out.println("Withdrawal amount must be positive.");
         }
     }
 
-    public void checkFixedTermDeposits(Date currentDate) {
-        for (Map.Entry<Date, Double> entry : fixedTermDeposits.entrySet()) {
-            if (entry.getKey().before(currentDate) || entry.getKey().equals(currentDate)) {
-                balance += entry.getValue();
-                System.out.println("Fixed-term deposit of $" + entry.getValue() + " matured. Transferred to balance.");
-                fixedTermDeposits.remove(entry.getKey());
-                break;
-            }
-        }
+    public void displayAccountInfo() {
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Account Holder: " + accountHolderName);
+        System.out.println("Balance: $" + balance);
     }
 }
 
 public class Main {
     public static void main(String[] args) {
-        BankAccount account = new BankAccount("Patel ji", 1000.0);
-        account.displayAccountDetails();
-        account.deposit(500.0);
-        account.displayAccountDetails();
-        Date maturityDate = new Date(2025 - 1900, 11, 31);
-        account.deposit(2000.0, maturityDate);
-        account.displayAccountDetails();
-        Date checkDate = new Date(2026 - 1900, 1, 1);
-        account.checkFixedTermDeposits(checkDate);
-        account.displayAccountDetails();
+        BankAccount account1 = new BankAccount("123456789", "John", 500.0);
+        BankAccount account2 = new BankAccount("987654321", "Jane ", 1000.0);
+        BankAccount account3 = new BankAccount("567890123", "Alice ", 750.0);
+
+        account1.deposit(200);
+        account2.withdraw(150);
+        account3.withdraw(800);  // Should show insufficient balance
+
+        account1.displayAccountInfo();
+        System.out.println();
+        account2.displayAccountInfo();
+        System.out.println();
+        account3.displayAccountInfo();
     }
 }
