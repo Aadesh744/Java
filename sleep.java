@@ -4,7 +4,7 @@ public class sleep {
             System.out.println("Number: " + i);
             try {
           
-                Thread.sleep(1000);
+                Thread.sleep(5);
             } catch (InterruptedException e) {
                 System.out.println("Thread interrupted: " + e.getMessage());
             }
