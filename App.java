@@ -1,14 +1,29 @@
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Stack;
 
-public class App{
+public class App {
     public static void main(String[] args) {
-  
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(10);
-        queue.add(20);
-        queue.add(30);
+      
+        Stack<String> stack = new Stack<>();
 
-       System.out.println("Queue after adding data: " + queue);
+      
+        stack.push("Element 1");
+        stack.push("Element 2");
+        stack.push("Element 3");
+
+      
+        System.out.println("display Top element in stack: " + stack.peek());
+
+  
+        System.out.println("remove/pop element which is at top " + stack.pop());
+
+        System.out.println(" display element value which is at top: " + stack.peek());
+
+       
+        while (!stack.isEmpty()) {
+            System.out.println("pop : " + stack.pop());
+        }
+
+      
+        System.out.println("empty? " + stack.isEmpty());
     }
 }
