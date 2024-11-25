@@ -1,8 +1,11 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        int a=20;
-        int b=10;
-        int sum=a+b;
-        System.out.println(sum);
-    }
+//Creating string
+String str1 = "kathmandu";
+String str2 = "coimbatore";
+String str3 = "Tamilnadu";
+//Concatenation 
+String concatenation = str1+" "+str2;  
+System.out.println("concatenation of strings:"+concatenation);
+}
 }
